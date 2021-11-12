@@ -1,0 +1,206 @@
+<!--
+
+	Hayley Jolliffe | h_jolliffe128179
+		|| Lab 6, 'Grocery Store'
+		|| Due Nov. 12, 2021 @ 11:59PM EST
+		|| UPDATE: Due Nov. 14, 2021 @ 11:59PM EST
+
+-->
+
+<!DOCTYPE html>
+<html>		
+	<body style="background-color: #aaffcd;">
+		<h1>Grocery Store</h1>
+		
+		<hr>
+		
+		<!-- Department Selection Area -->
+		<h3>Department</h3>
+		<div id="radioButtons" style="border: 1px solid black; padding: 5px; background-color: #ffffff;">
+			<p>
+				<input type="radio" id="rbProduce" name="department" value="Produce" onclick="displayProducts();">
+				Produce
+			</p>
+			<p>
+				<input type="radio" id="rbBakery" name="department" value="Bakery" onclick="displayProducts();">
+				Bakery
+			</p>
+			<p>
+				<input type="radio" id="rbMeat" name="department" value="Meats" onclick="displayProducts();">
+				Meats
+			</p>
+			<p>
+				<input type="radio" id="rbCheese" name="department" value="Cheese" onclick="displayProducts();">
+				Cheese
+			</p>
+			
+		</div>
+		
+		<hr>
+		
+		<!-- Product Output Area -->
+		<h3>Products Available</h3>
+		<div id="productOutput" style="border: 1px solid black; padding: 5px; background-color: #ffffff;">[Select a Department]</div>
+		
+		<!-- Add Product to Department -->
+		<p>Add Product:
+			<input type="text" id="product">
+			<input type="button" value="Add Product" onclick="addProduct();">
+		</p>
+		
+		<hr>
+		
+		<!-- Product Selection Field -->
+		<h3>Shopping Cart</h3>
+		
+		<p>Add Item #
+			<select id="itemNumDropdown"><option selected disabled value=null>00</option></select>
+			 to Cart:
+			<input type="button" value="Add to Cart" onclick="addItemToCart();">
+		</p>
+		
+		<!-- Product Output Area -->
+		<div id="cartOutput" style="border: 1px solid black; padding: 5px; background-color: #ffffff;">[Add an Item to Cart]</div>
+		
+		<!-- Javascript -->
+		<script>			
+			/*
+				changeItemDropdown()
+				Purpose: Populate the dropdown with numbers from 1 to maxNumber
+				Parameters: maxNumber 
+				Returns: Nothing
+			*/
+			function changeItemDropdown(maxNumber) {
+				// Validate maxNumber
+				if(maxNumber > 1)
+				{
+					// Get Dropdown Element
+					var dropDown = document.getElementById("itemNumDropdown");
+					
+					// Empty Dropdown
+					dropDown.innerHTML = "";
+					
+					// Create default option 00
+					var defaultOption = document.createElement("option"); 
+					defaultOption.innerHTML = "00";
+					defaultOption.value = null;	
+					defaultOption.disabled = true;
+					defaultOption.selected = true;
+					dropDown.appendChild(defaultOption);
+					
+					// Add options to dropDown
+					for (var x = 1; x <= maxNumber; x++)
+					{
+						var tempElement = document.createElement("option"); 					
+						tempElement.innerHTML = x;
+						tempElement.value = x;					
+						dropDown.appendChild(tempElement);		
+					}
+					
+					console.log("Dropdown updated!");
+					
+				} // end if
+				else
+				{
+					console.log("Dropdown not updated!");
+				}
+				
+			} // end changeItemDropdown function
+		
+        	/*
+            	ARRAYS FOR DEPARTMENTS (STEP 3)
+            	Produce: Apples, bananas, mangoes, grapes, pears, broccoli
+            	Bakery: Baguette, pumpkin pie, chocolate cookies
+            	Meat: Beef, chicken, ham, turkey
+            	Cheese: Cheddar, swiss, gouda, havarti, asiago
+
+	            (STEP 4)
+    	        Cart: Starts empty
+
+            	ALL ARRAYS WILL BE GLOBAL
+        	*/
+        	// Produce Array
+			var aProduce = ["Apples", "Bananas", "Mangoes", "Grapes", "Pears", "Broccoli"];
+        	// Bakery Array
+			var aBakery = ["Baguette", "Pumpkin Pie", "Chocolate Cookies"];
+        	// Meat Array
+			var aMeat = ["Beef", "Chicken", "Ham", "Turkey"];
+        	// Cheese Array
+			var aCheese = ["Cheddar", "Swiss", "Gouda", "Havarti", "Asiago"];
+        	// Cart Array
+			var aShoppingCart = [];
+        	/*
+            	CREATING FUNCTIONS (STEP 5)
+            	displayProducts() — Clicking radio buttons shows corresponding department items
+            	addProduct() — Adds new items to departments using textbox input
+            	addItemToCart() — Adds items to cart using numbered dropdown
+        	*/
+			// displayProduct() — Clicking radio buttons shows corresponding department items
+			function displayProducts() {
+				// Set INDEX variable
+				var index;
+				// Checking radio button selection
+				// PRODUCE check
+				if (document.getElementById("rbProduce").checked) {
+					document.getElementById("productOutput").innerHTML = aProduce;
+					index = aProduce
+					changeItemDropdown(aProduce.value);
+				}
+				// BAKERY check
+				else if (document.getElementById("rbBakery").checked) {
+					document.getElementById("productOutput").innerHTML = aBakery;
+					changeItemDropdown(aBakery.findIndex);
+				}
+				// MEAT check
+				else if (document.getElementById("rbMeat").checked) {
+					document.getElementById("productOutput").innerHTML = aMeat;
+					changeItemDropdown(aMeat.findIndex);
+				}
+				// CHEESE check
+				else if (document.getElementById("rbCheese").checked) {
+					document.getElementById("productOutput").innerHTML = aCheese;
+					changeItemDropdown(aCheese.findIndex);
+				}
+				else {
+					document.getElementById("productOutput").innerHTML = "Please select a department to see in-stock items.";
+				}
+				// END PRODUCE check	
+			}
+			// addProduct() — Adds new items to departments using textbox input
+			function addProduct() {
+				// Add new product variable
+				var newProduct = (document.getElementById("product").value);
+				// Checking radio button selection
+				// PRODUCE check
+				if (document.getElementById("rbProduce").checked) {
+					aProduce.push(newProduct);
+					displayProducts();
+					document.getElementById("product").value = "";
+				}
+				// BAKERY check
+				else if (document.getElementById("rbBakery").checked) {
+					aBakery.push(newProduct);
+					displayProducts();
+					document.getElementById("product").value = "";
+				}
+				// MEAT check
+				else if (document.getElementById("rbMeat").checked) {
+					aMeat.push(newProduct);
+					displayProducts();
+					document.getElementById("product").value = "";
+				}
+				// CHEESE check
+				else if (document.getElementById("rbCheese")); {
+					aCheese.push(newProduct);
+					displayProducts();
+					document.getElementById("product").value = "";
+				}
+				// END PRODUCE check
+        	}
+        	// addItemToCart() — Adds items to cart using numbered dropdown
+			function addItemToCart() {
+				aShoppingCart.push();
+        	}
+		</script>
+	</body>
+</html>
