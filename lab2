@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hayley Jolliffe | Lab 002</title>
+    </head>
+
+    <body>
+        <script>
+            window.alert("Welcome to Shopping Cart Simulator 2020!"); // Welcome
+            var firstName = prompt("Enter your first name"); // First Name
+            var lastName = prompt("Enter your last name"); // Last Name
+            var email = prompt("Enter your email"); // Email
+            var phone = prompt("Enter your phone number"); // Phone Number
+            var HST_TAX = 0.13; // Tax Rate
+            var item1 = prompt("Enter an item's price"); // Item 1 Cost
+            var item2 = prompt("Enter another item's price"); // Item 2 Cost
+            var item3 = prompt("Enter another item's price"); // Item 3 Cost
+            var subtotal = Number(item1) + Number(item2) + Number(item3); // Sum of item prices
+            var tax = subtotal * HST_TAX; // Finding tax amount
+            var total = subtotal + tax; // Total
+            console.log("Customer Full Name: " + firstName + " " + lastName); // Logs Full Name
+            console.log("Email: " + email); // Logs Email
+            console.log("Phone: " + phone); // Logs Phone Number
+            console.log("Item 1: $" + item1); // Logs Item 1
+            console.log("Item 2: $" + item2); // Logs Item 2
+            console.log("Item 3: $" + item3); // Logs Item 3
+            console.log("Subtotal: $" + subtotal); // Logs Subtotal
+            console.log("Tax: $" + tax); // Logs Tax
+            console.log("Total: $" + total); // Logs Total
+        </script>
+    </body>
+</html>
