@@ -1,2 +1,2 @@
 # info-1273
-labwork for javascript 1
+Labwork for INFO-1272 | JavaScript 1
