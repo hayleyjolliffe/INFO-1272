@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Lab 4</title>
+    </head>
+    <body>
+        <h1>Temperature Conversion</h1>
+        <script>
+            /*
+                Temperature Conversion
+                    > Celsius to Fahrenheit
+                    > Fahrenheit to Celsius
+            */
+
+            // Fahrenheit Conversion
+            function convertToFAH(num) {
+                var fahrenheit = Math.round(num * 9 / 5 + 32);
+                return fahrenheit;
+            }
+
+            // Celsius Conversion
+            function convertToCEL(num2) {
+                var celsius = Math.round((num2 - 32) * 5 / 9);
+                return celsius;
+            }
+
+            // Logs
+            console.log(convertToFAH(23));
+            console.log(convertToCEL(32));
+
+            // Prompts
+            var input = prompt("Please input the temperature to be converted.");
+            var unit = prompt("Please enter the unit to convert to using " + "C for Celsius, or " + "F for Fahrenheit.");
+
+            // Conversion
+            if (unit == "F") {
+                console.log(convertToFAH(input));
+            }
+
+            else if (unit == "C") {
+                console.log(convertToCEL(input));
+            }
+        </script>
+    </body>
+</html>
