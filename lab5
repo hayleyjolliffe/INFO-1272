@@ -1,0 +1,110 @@
+<!--
+
+	Name: Hayley Jolliffe	
+	Date: Oct. 29 — Nov. 5, 2021
+	Purpose: Lab 005, 'Math Drills'
+
+-->
+
+<!-- CODE START -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lab 5</title>
+		<style>			
+		/*-- STYLE START --*/
+		body {
+			font-family: Helvetica, Arial, sans-serif;
+			background-color: #ccffff;
+			color: #0a126b;
+			font-size: 150%;			
+		}
+		
+		#output{
+			border: 12px double #202775;
+			color: #523620;
+			text-align: center;
+			padding: 20px;
+			margin: 20px auto 10px auto ;
+			width: 450px;				
+		}
+				
+		.button{			
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			color: white;
+			background-color: #202775; 
+		}
+		</style>
+	</head>
+	<body>	
+		<h1>Math Drills</h1>
+		
+		<!-- OPERATOR INPUT -->
+		Select an arithmetic operation (* or +):
+		<input type="text" id="tbOperator" value="">
+		<br><br>
+			
+		<!-- INTEGER INPUT -->
+		Enter a positive integer value between 1 and 100:
+		<input type="text" id="tbInteger">
+		<br><br>
+		
+		<!-- BUTTONS -->
+		<input type="button" value="Calculate" class="button" onclick="calculate()" />
+		<input type="button" value="Clear" class="button" onclick="clearOutput()" />
+		
+		<!-- OUTPUT -->
+		<div id="output"></div>
+		
+
+		<!-- SCRIPT START -->
+		<script>	
+		/*
+			Global Variables
+		*/
+		var operator = "";
+		var integer = "";
+
+		/*
+			Functions
+		*/
+		// 'Calculate' Function
+		function calculate() {
+			operator = document.getElementById("tbOperator").value; // Collects operator input
+			integer = parseInt(document.getElementById("tbInteger").value); // Collects integer input
+			var counter = 1;
+			
+			// Equation Loop
+   		while (counter <= 12) {
+				// Multiplication
+      		if (integer >= 1 && integer <= 100 && operator == "*") {
+					var multiplication = counter * integer;
+					document.getElementById("output").innerHTML += (counter + " * " + integer + " = " + multiplication + "<br>");
+         		counter++;
+      		}
+				// Addition
+      		else if (integer >= 1 && integer <= 100 && operator == "+") {
+					var addition = counter + integer; 
+					document.getElementById("output").innerHTML += (counter + " + " + integer + " = " + addition + "<br>");
+         		counter++;
+      		}
+				// Error
+				else {
+					alert("Error: Invalid input. Try again.");
+					document.getElementById("tbInteger").value = "";
+					break;
+				}
+   		}
+		}
+
+		// 'Clear' Function
+		function clearOutput() {
+			document.getElementById("output").innerHTML = "";
+			document.getElementById("tbOperator").value = "";
+			document.getElementById("tbInteger").value = "";
+		}
+
+		</script>
+	</body>
+</html>
