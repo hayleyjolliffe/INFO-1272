@@ -1,3 +1,22 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Lab 1</title>
+    </head>
+    <body>
+        <h1>Lab 1</h1>
+        <script>
+            /*
+                Name: Hayley Jolliffe
+                Project: Lab 1
+                Date: September 2021
+            */
+           alert("Welcome to Fanshawe College!"); // Pop-up messages (Item 3)
+           var studentName = "no name"; // Setting name variable (Item 4)
+           alert(studentName); // Name pop-up (Item 5)
+           prompt("Enter the student's name"); // Student name entry (Item 6)
+           studentName = prompt("Enter the student's name") // Sets student's name (Item 6)
+           document.write(studentName); // Writes name to document (Item 7)
+        </script>
+    </body>
 </html>
