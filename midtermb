@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Midterm B, ATM</title>
+    </head>
+    <body>
+        <script>
+            // Midterm B, ATM
+        
+            // Variables
+            var balance = 5000.0; // Stores user's account funds
+            var INTEREST_RATE = 0.025; // Stores constant interest rate
+        
+            // Functions
+            function deposit() {
+                var deposited = parseInt(prompt("Enter the amount to deposit."));
+                balance = balance + deposited;
+                alert("Deposit: $" + deposited + "\n" + "Balance: $" + (parseInt(balance) - parseInt(deposited)) + " → $" + parseInt(balance)); // Shows amount deposited, previous balance, new balance
+                return transaction();
+            }
+            function withdraw() {
+                var withdrawn = parseInt(prompt("Enter the amount to withdraw."));
+                if (withdrawn > balance) {
+                    alert("Insufficient funds for withdrawal.");
+                    return transaction();
+                }
+                else 
+                balance = balance - withdrawn;
+                alert("Withdrawn: $" + withdrawn + "\n" + "Balance: $" + (balance + withdrawn) + " → $" + balance); // Shows amount withdrawn, previous balance, new balance
+                return transaction();
+            }
+            function viewBalance() {
+                alert("Balance: $" + balance);
+                return transaction()
+            }
+            function calculateInterest() {
+                var months = parseInt(prompt("Input the number of months to calculate interest for."));
+                var temp = balance;
+                var count = 1;
+                console.log("Projecting " + months + " months of interest...");
+                while (count <= months)
+                {
+                    console.log("Month " + count + ": $" + temp.toFixed(2) + " + 2.5% = $" + (temp * 1.025).toFixed(2));
+                    temp = temp * 1.025;
+                    count++;
+                }
+                alert("Interest has been output in the console.");
+                return transaction();
+            }
+            // Transaction Loop
+            function start() {
+                var action = prompt("Select a transaction: \n B: Show balance \n D: Deposit \n W: Withdraw \n C: Calculate interest");
+                if (action == "B") {
+                    return viewBalance();
+                }
+                else if (action == "D") {
+                    return deposit();
+                }
+                else if (action == "W") {
+                    return withdraw();
+                }
+                else if (action == "C") {
+                    return calculateInterest();
+                }
+            }
+            function transaction() {
+                if (confirm("Make another selection?")) {
+                    return start();
+                }
+            }
+
+            window.onload = start;
+        </script>
+    </body>
+</html>
