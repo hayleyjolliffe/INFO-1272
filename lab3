@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Lab 2</title>
+    </head>
+    <body>
+        <h1>Internet Service Calculator</h1>
+        <script>
+            /*
+                Subscription Packages:
+                > Package 1: < 10hrs. 
+                    > Min. fee = $9.95
+                    > + $2/hr > 10hrs.
+                > Package 2:  < 20hrs.
+                    > Min. fee = $13.95
+                    > + $1/hr > 20hrs.
+                > Package 3: Unlimited
+                    > $19.95
+            */
+
+            // Getting Billing Info
+            var billing = prompt("Enter the billing period (ex. October 2021)");
+            document.write("Service Bill for " + billing + "<br>");
+
+            // Getting Package #
+            var package = prompt("Select a service package: \n Package 1: Up to 10 hours of Internet access \n Package 2: Up to 20 hours of Internet access \n Package 3: Unlimited access");
+            document.write("Internet Package " + package + "<br>");
+
+            // Getting Usage Rate
+            var usage = prompt("Enter the # of hours of Internet access (ex. 24)");
+            document.write("Hours of Access: " + usage + "<br>");
+
+            // Generating Bill
+            var packagePrice = "";
+            var packageHours = "";
+            var packageSubtotal = "";
+            var hoursExtra = (usage - packageHours);
+            package = parseInt(package); // Converts Package # input to a number
+            // Finding pricing
+            if (package == 1)
+            {
+                packagePrice = 9.95;
+                packageHours = 10
+                hoursExtra = usage - packageHours;
+                packageSubtotal = packagePrice + (hoursExtra * 2);
+            }
+            else if (package == 2)
+            { 
+                packagePrice = 13.95;
+                packageHours = 20;
+                hoursExtra = usage - packageHours;
+                packageSubtotal = packagePrice + (hoursExtra * 1);
+            }
+            else if (package == 3)
+            { 
+                packagePrice = 19.95;
+                packageSubtotal = packagePrice;
+            }
+            // Adding subtotal to document
+            document.write("Service Fee (before tax): $" + packageSubtotal);
+        </script>
+    </body>
+</html>
