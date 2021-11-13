@@ -5,4 +5,4 @@
 ##### Lab 4: 'Temperature Converter', due 10/16/21
 ##### Midterm B: 'ATM', due 10/22/21
 ##### Lab 5: 'Math Drills', due 11/09/21
-##### Lab 6: 'Grocery Store', due 11/12/21
+##### Lab 6: 'Grocery Store', due 11/14/21
