@@ -143,23 +143,26 @@
 				// PRODUCE check
 				if (document.getElementById("rbProduce").checked) {
 					document.getElementById("productOutput").innerHTML = aProduce;
-					index = aProduce
-					changeItemDropdown(aProduce.value);
+					index = parseInt(aProduce.length);
+					changeItemDropdown(index);
 				}
 				// BAKERY check
 				else if (document.getElementById("rbBakery").checked) {
 					document.getElementById("productOutput").innerHTML = aBakery;
-					changeItemDropdown(aBakery.findIndex);
+					index = parseInt(aBakery.length);
+					changeItemDropdown(index);
 				}
 				// MEAT check
 				else if (document.getElementById("rbMeat").checked) {
 					document.getElementById("productOutput").innerHTML = aMeat;
-					changeItemDropdown(aMeat.findIndex);
+					index = parseInt(aMeat.length);
+					changeItemDropdown(index);
 				}
 				// CHEESE check
 				else if (document.getElementById("rbCheese").checked) {
 					document.getElementById("productOutput").innerHTML = aCheese;
-					changeItemDropdown(aCheese.findIndex);
+					index = parseInt(aCheese.length);
+					changeItemDropdown(index);
 				}
 				else {
 					document.getElementById("productOutput").innerHTML = "Please select a department to see in-stock items.";
@@ -190,7 +193,7 @@
 					document.getElementById("product").value = "";
 				}
 				// CHEESE check
-				else if (document.getElementById("rbCheese")); {
+				else if (document.getElementById("rbCheese").checked) {
 					aCheese.push(newProduct);
 					displayProducts();
 					document.getElementById("product").value = "";
@@ -199,7 +202,41 @@
         	}
         	// addItemToCart() — Adds items to cart using numbered dropdown
 			function addItemToCart() {
-				aShoppingCart.push();
+				// Create 'SELECTED' variable for determining item value
+				var selected = parseInt(document.getElementById("itemNumDropdown").value);
+				// Checking radio button selection
+				// PRODUCE check
+				if (document.getElementById("rbProduce").checked) {
+					index = aProduce.length;
+					if (selected <= index) {
+						aShoppingCart.push(aProduce[selected - 1]);
+					}
+					document.getElementById("cartOutput").innerHTML = aShoppingCart;
+				}
+				// BAKERY check
+				else if (document.getElementById("rbBakery").checked) {
+					index = aBakery.length;
+					if (selected <= index) {
+						aShoppingCart.push(aBakery[selected - 1]);
+					}
+					document.getElementById("cartOutput").innerHTML = aShoppingCart;
+				}
+				// MEAT check
+				else if (document.getElementById("rbMeat").checked) {
+					index = aMeat.length;
+					if (selected <= index) {
+						aShoppingCart.push(aMeat[selected - 1]);
+					}
+					document.getElementById("cartOutput").innerHTML = aShoppingCart;
+				}
+				// CHEESE check
+				else if (document.getElementById("rbCheese").checked) {
+					index = aCheese.length;
+					if (selected <= index) {
+						aShoppingCart.push(aCheese[selected - 1]);
+					}
+					document.getElementById("cartOutput").innerHTML = aShoppingCart;
+				}
         	}
 		</script>
 	</body>
