@@ -16,7 +16,7 @@
 		<title>Postal Service</title>
 	</head>
 	<body>
-		<image src="iwd_ps_logo.png" width="50%" height="50%" />
+		<!-- <image src="iwd_ps_logo.png" width="50%" height="50%" /> -->
 		
 		<!-- Create Parcel -->
 		<fieldset>
@@ -131,7 +131,7 @@
             console.log(aParcel);
 
             // Creating global scope PARCEL PROPERTIES
-            var aStatus = ["Processing", "In Transit", "Shipping", "Delivered"];
+            var aStatus = ["Processing", "In Transit", "Shipped", "Delivered"];
             var aDestination = ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland", "Northwest Territories", "Nova Scotia", "Nunavut", "Ontario", "P.E.I", "Quebec", "Saskatchewan", "Yukon"];
 
             // Creating createParcel() FUNCTION
@@ -160,11 +160,22 @@
             // Creating displayParcels FUNCTION
             function displayParcels()
             {
-                if (document.getElementById(displayParcelsFilter) == "Processing")
+                if (document.getElementById(displayParcelsFilter).value == 0)
                 {
-
+                    status = aStatus[0];
                 }
-                console.log(aParcel);
+                else if (document.getElementById(displayParcelsFilter).value == 1)
+                {
+                    status = aStatus[1];
+                }
+                else if (document.getElementById(displayParcelsFilter).value == 2)
+                {
+                    status = aStatus[2];
+                }
+                else if (document.getElementById(displayParcelsFilter).value == 3)
+                {
+                    status = aStatus[3];
+                }
                 document.getElementById("displayParcelOutput").innerHTML = aParcel;
             }
 
