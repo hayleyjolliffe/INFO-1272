@@ -1,4 +1,4 @@
-<!-- 
+<!--
 
 
 
@@ -7,7 +7,7 @@
     || Due 28 November, 11:59PM
 
 
-
+    
 -->
 
 <!DOCTYPE html>
@@ -109,6 +109,51 @@
 				return trackingNumber;
 			}
 			
+            // Creating PARCEL CONSTRUCTOR (Step 3)
+            function Parcel(trackingNumber, status, destination, weight, express)
+            {
+                // PARCEL OBJECT properties
+                this.trackingNumber = trackingNumber;
+                this.status = status;
+                this.destination = destination;
+                this.weight = weight;
+                this.express = express;
+            }
+
+            // Creating global scope PARCEL ARRAY
+            var aParcel = [];
+
+            // Creating global scope PARCEL OBJECTS for PARCEL ARRAY
+            aParcel.push(new Parcel("IWD000000000A", "Processing", "Ontario", 100, true));
+            aParcel.push(new Parcel("IWD000000000B", "Processing", "British Columbia", 150, true));
+            aParcel.push(new Parcel("IWD000000000C", "In Transit", "Alberta", 125, false));
+
+            console.log(aParcel);
+
+            // Creating createParcel() FUNCTION
+            function createParcel()
+            {
+                
+                trackingNumber = generateTrackingNumber();
+                status = "Processing";
+                destination = document.getElementById(createParcel_Destination).value;
+                weight = document.getElementById(createParcel_Weight).innerHTML;
+                if (document.getElementById(createParcel_ExpressShipping).checked)
+                {
+                    express = true;
+                }
+                else
+                {
+                    express = false;
+                }
+                aParcel.push(new Parcel(trackingNumber, status, destination, weight, express));
+            }
+
+            // Creating displayParcels FUNCTION
+            function displayParcels()
+            {
+                document.getElementById(displayParcelOutput).innerHTML = aParcel;
+            }
 		</script>
 	</body>
 </html>
