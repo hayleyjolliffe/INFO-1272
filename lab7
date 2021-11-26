@@ -130,6 +130,10 @@
 
             console.log(aParcel);
 
+            // Creating global scope PARCEL PROPERTIES
+            var aStatus = ["Processing", "In Transit", "Shipping", "Delivered"];
+            var aDestination = ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland", "Northwest Territories", "Nova Scotia", "Nunavut", "Ontario", "P.E.I", "Quebec", "Saskatchewan", "Yukon"];
+
             // Creating createParcel() FUNCTION
             function createParcel()
             {
