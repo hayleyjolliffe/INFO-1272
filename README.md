@@ -6,3 +6,4 @@
 ##### Midterm B: 'ATM', due 10/22/21
 ##### Lab 5: 'Math Drills', due 11/09/21
 ##### Lab 6: 'Grocery Store', due 11/14/21
+##### Lab 7: 'Postal Service', due 11/28/21
