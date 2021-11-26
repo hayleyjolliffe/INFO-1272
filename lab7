@@ -7,7 +7,7 @@
     || Due 28 November, 11:59PM
 
 
-    
+
 -->
 
 <!DOCTYPE html>
@@ -124,35 +124,50 @@
             var aParcel = [];
 
             // Creating global scope PARCEL OBJECTS for PARCEL ARRAY
-            aParcel.push(new Parcel("IWD000000000A", "Processing", "Ontario", 100, true));
-            aParcel.push(new Parcel("IWD000000000B", "Processing", "British Columbia", 150, true));
-            aParcel.push(new Parcel("IWD000000000C", "In Transit", "Alberta", 125, false));
+            aParcel[0] = (new Parcel('IWDV3DE6MQGES', 'Processing', 'Ontario', 100, true));
+            aParcel[1] = (new Parcel('IWD029HT8KV0S', 'Processing', 'British Columbia', 150, true));
+            aParcel[2] = (new Parcel('IWDZY1PHHH0ZP', 'In Transit', 'Alberta', 125, false));
 
             console.log(aParcel);
 
             // Creating createParcel() FUNCTION
             function createParcel()
             {
-                
-                trackingNumber = generateTrackingNumber();
-                status = "Processing";
-                destination = document.getElementById(createParcel_Destination).value;
-                weight = document.getElementById(createParcel_Weight).innerHTML;
-                if (document.getElementById(createParcel_ExpressShipping).checked)
+                Parcel();
+                var trackingNumber = generateTrackingNumber();
+                console.log("Tracking number: " + trackingNumber);
+                var status = "Processing";
+                var destination = document.getElementById("createParcel_Destination").value;
+                var weight = parseInt(document.getElementById("createParcel_Weight").innerHTML) + "g";
+                // Checking Express status
+                if (document.getElementById("createParcel_ExpressShipping").checked == true)
                 {
-                    express = true;
+                    var express = true;
                 }
-                else
+                else if (document.getElementById("createParcel_ExpressShipping").checked /= true)
                 {
-                    express = false;
+                    var express = false;
                 }
                 aParcel.push(new Parcel(trackingNumber, status, destination, weight, express));
+                console.log(aParcel);
+                displayParcels();
             }
 
             // Creating displayParcels FUNCTION
             function displayParcels()
             {
-                document.getElementById(displayParcelOutput).innerHTML = aParcel;
+                if (document.getElementById(displayParcelsFilter) == "Processing")
+                {
+
+                }
+                console.log(aParcel);
+                document.getElementById("displayParcelOutput").innerHTML = aParcel;
+            }
+
+            // Creating processParcel FUNCTION
+            function processParcel()
+            {
+
             }
 		</script>
 	</body>
