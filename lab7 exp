@@ -133,7 +133,7 @@
                 document.getElementById("displayParcelOutput").innerHTML = "";
                 var index = 0;
                 do
-                {
+                    {
                     document.getElementById("displayParcelOutput").innerHTML = 
                         document.getElementById("displayParcelOutput").innerHTML
                         + aParcels[index].trackingNumber + " | " 
