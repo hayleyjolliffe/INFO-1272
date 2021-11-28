@@ -75,7 +75,7 @@
 		<script>
 
 			// Call DisplayParcels on load
-			displayParcels();
+			// displayParcels();
 
 
 			/*
@@ -107,53 +107,30 @@
                 this.express = express;                             // Boolean
             }
 
-            // Testing Parcel Constructor
-            var instance = new Parcel("IWD001", "Shipping", "Ontario", 100, true);
-
-            console.log(typeof instance);
-            console.log(instance);
-            console.log(instance.trackingNumber);
-            console.log(instance.status);
-            console.log(instance.destination);
-            console.log(instance.weight);
-            console.log(instance.express);
-
-            console.log(instance);
-
-            document.getElementById("displayParcelOutput").innerHTML = instance;
-
             // Creating Parcel Array (Global)
-            aParcel = [];
+            var aParcels = [];
 
-            // Creating New Instances (Global)
-            instance = new Parcel("IWDHRNIWAKKTT", "Shipping", "Ontario", 100, true);
-            aParcel.push(instance);
+            // Adding New Parcels (Global)
+            aParcels.push( new Parcel("IWDHRNIWAKKTT", "Shipping", "Ontario", 100, true) );
+            aParcels.push( new Parcel("IWDIRVSETBA7M", "In Transit", "British Columbia", 150, false) );
+            aParcels.push( new Parcel("IWDEAYBETJZCS", "Delivered", "Alberta", 70, true) );
 
-            instance = new Parcel("IWDIRVSETBA7M", "In Transit", "British Columbia", 150, false);
-            aParcel.push(instance);
-
-            instance = new Parcel("IWDEAYBETJZCS", "Delivered", "Alberta", 70, true);
-            aParcel.push(instance);
-
-            // Testing aParcel[] AND trackingNumber()
-            console.log(aParcel);
-            console.log(aParcel[0].trackingNumber);
-            console.log(aParcel[1].trackingNumber);
-            console.log(aParcel[2].trackingNumber);
+            // Testing aParcels
+            console.log(aParcels);
 
             // Creating createParcel() Function
             function createParcel()
             {
                 generateTrackingNumber();
-                displayParcels();
+                var trackingNumber = generateTrackingNumber(trackingNumber);                        // String
+                var status = "Processing";                                                          // String
+                var destination = document.getElementById("createParcel_Destination").value;        // String
+                var weight = parseInt(document.getElementById("createParcel_Weight").value);                        // Number
+                var express = document.getElementById("createParcel_expressShipping").checked;      // Boolean
+                aParcels.push(new Parcel(trackingNumber, status, destination, weight, express));
+                // Getting changed to displayParcels() on creation
+                console.log(aParcels);
             }
-
-            // Creating displayParcels() Function
-            function displayParcels()
-            {
-                var display = document.getElementById("displayParcelOutput").innerHTML = aParcel;
-            }
-
 		</script>
 	</body>
 </html>
