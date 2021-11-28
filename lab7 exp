@@ -75,7 +75,7 @@
 		<script>
 
 			// Call DisplayParcels on load
-			// displayParcels();
+			displayParcels();
 
 
 			/*
@@ -120,10 +120,10 @@
 
             console.log(instance);
 
-            document.getElementById("displayParcelOutput").innerHTML = parseFloat(instance);
+            document.getElementById("displayParcelOutput").innerHTML = instance;
 
             // Creating Parcel Array (Global)
-            aParcel = [Parcel];
+            aParcel = [];
 
             // Creating New Instances (Global)
             instance = new Parcel("IWDHRNIWAKKTT", "Shipping", "Ontario", 100, true);
@@ -137,8 +137,21 @@
 
             // Testing aParcel[] AND trackingNumber()
             console.log(aParcel);
+            console.log(aParcel[0].trackingNumber);
+            console.log(aParcel[1].trackingNumber);
             console.log(aParcel[2].trackingNumber);
-            console.log(aParcel[3].trackingNumber);
+
+            // Creating createParcel() Function
+            function createParcel()
+            {
+                generateTrackingNumber();
+            }
+
+            // Creating displayParcels() Function
+            function displayParcels()
+            {
+                document.getElementById("displayParcelOutput")
+            }
 
 		</script>
 	</body>
