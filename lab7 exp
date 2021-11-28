@@ -73,11 +73,7 @@
 		
 		<!-- Javascript -->
 		<script>
-
-			// Call DisplayParcels on load
-			// displayParcels();
-
-
+            // Creating generateTrackingNumber() Function
 			/*
 				generateTrackingNumber()
 				Purpose: Helper function - generates a random tracking number
@@ -115,8 +111,8 @@
             aParcels.push( new Parcel("IWDIRVSETBA7M", "In Transit", "British Columbia", 150, false) );
             aParcels.push( new Parcel("IWDEAYBETJZCS", "Delivered", "Alberta", 70, true) );
 
-            // Testing aParcels
-            console.log(aParcels);
+            // Display Parcels On Load
+            displayParcels();
 
             // Creating createParcel() Function
             function createParcel()
@@ -128,13 +124,13 @@
                 var weight = parseInt(document.getElementById("createParcel_Weight").value);        // Number
                 var express = document.getElementById("createParcel_expressShipping").checked;      // Boolean
                 aParcels.push( new Parcel(trackingNumber, status, destination, weight, express) );
-                // Getting changed to displayParcels() on creation
-                console.log(aParcels);
+                displayParcels();
             }
 
             // Creating displayParcels() Function
             function displayParcels()
             {
+                document.getElementById("displayParcelOutput").innerHTML = "";
                 var index = 0;
                 do
                 {
@@ -151,7 +147,7 @@
             // Creating processParcel() Function
             function processParcel()
             {
-
+                
             }
 		</script>
 	</body>
