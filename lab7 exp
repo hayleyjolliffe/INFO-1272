@@ -125,11 +125,17 @@
                 var trackingNumber = generateTrackingNumber(trackingNumber);                        // String
                 var status = "Processing";                                                          // String
                 var destination = document.getElementById("createParcel_Destination").value;        // String
-                var weight = parseInt(document.getElementById("createParcel_Weight").value);                        // Number
+                var weight = parseInt(document.getElementById("createParcel_Weight").value);        // Number
                 var express = document.getElementById("createParcel_expressShipping").checked;      // Boolean
-                aParcels.push(new Parcel(trackingNumber, status, destination, weight, express));
+                aParcels.push( new Parcel(trackingNumber, status, destination, weight, express) );
                 // Getting changed to displayParcels() on creation
                 console.log(aParcels);
+            }
+
+            // Creating displayParcels() Function
+            function displayParcels()
+            {
+                
             }
 		</script>
 	</body>
