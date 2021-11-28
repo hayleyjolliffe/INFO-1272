@@ -145,12 +145,13 @@
             function createParcel()
             {
                 generateTrackingNumber();
+                displayParcels();
             }
 
             // Creating displayParcels() Function
             function displayParcels()
             {
-                document.getElementById("displayParcelOutput")
+                var display = document.getElementById("displayParcelOutput").innerHTML = aParcel;
             }
 
 		</script>
