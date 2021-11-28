@@ -68,7 +68,7 @@
 				</select>
 			</div>
 			<div style="padding-bottom: 5px;"><strong>Tracking Number | Status | Destination | Weight | Express Shipping</strong></div>
-			<div id="displayParcelOutput">[Ouput the list of parcels here]</div>
+			<div id="displayParcelOutput"></div>
 		</fieldset>
 		
 		<!-- Javascript -->
@@ -135,7 +135,23 @@
             // Creating displayParcels() Function
             function displayParcels()
             {
-                
+                var index = 0;
+                do
+                {
+                    document.getElementById("displayParcelOutput").innerHTML = 
+                        document.getElementById("displayParcelOutput").innerHTML
+                        + aParcels[index].trackingNumber + " | " 
+                        + aParcels[index].status  + " | " 
+                        + aParcels[index].destination + " | "
+                        + parseInt(aParcels[index].weight) + "g | "
+                        + aParcels[index].express + "<br>";
+                    index++;} while (index < aParcels.length);
+            }
+
+            // Creating processParcel() Function
+            function processParcel()
+            {
+
             }
 		</script>
 	</body>
