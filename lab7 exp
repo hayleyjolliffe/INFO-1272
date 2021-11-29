@@ -132,19 +132,12 @@
             {
                 document.getElementById("displayParcelOutput").innerHTML = "";
                 var index = 0;
-                var selected = "";
-                // Creating Status Filter Arrays
-                var aProcessingFilter = [];
-                var aShippedFilter = [];
-                var aTransitFilter = [];
-                var aDeliveredFilter = [];
+                var selected = document.getElementById("displayParcelsFilter").value;
+                // Creating Status Filter Array
+                var aFiltered = [];
 
-                // Sorting Processing Filter
-                aProcessingFilter;
-
-                // Do While Loop
-                do
-                    {
+                for (index = 0; index < aParcels.length;)
+                {
                     document.getElementById("displayParcelOutput").innerHTML = 
                         document.getElementById("displayParcelOutput").innerHTML
                         + aParcels[index].trackingNumber + " | " 
@@ -152,13 +145,8 @@
                         + aParcels[index].destination + " | "
                         + parseInt(aParcels[index].weight) + "g | "
                         + aParcels[index].express + "<br>";
-                    index++;} while (index < aParcels.length);
-            }
-
-            // Creating processParcel() Function
-            function processParcel()
-            {
-                
+                    index++;
+                }
             }
 		</script>
 	</body>
