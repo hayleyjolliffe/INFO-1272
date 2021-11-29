@@ -4,7 +4,7 @@
 		<title>Postal Service</title>
 	</head>
 	<body>
-		<!-- <image src="iwd_ps_logo.png" width="50%" height="50%" /> -->
+		<image src="iwd_ps_logo.png" width="50%" height="50%" />
 		
 		<!-- Create Parcel -->
 		<fieldset>
@@ -107,7 +107,7 @@
             var aParcels = [];
 
             // Adding New Parcels (Global)
-            aParcels.push( new Parcel("IWDHRNIWAKKTT", "Shipping", "Ontario", 100, true) );
+            aParcels.push( new Parcel("IWDHRNIWAKKTT", "Shipped", "Ontario", 100, true) );
             aParcels.push( new Parcel("IWDIRVSETBA7M", "In Transit", "British Columbia", 150, false) );
             aParcels.push( new Parcel("IWDEAYBETJZCS", "Delivered", "Alberta", 70, true) );
 
@@ -136,16 +136,67 @@
                 // Creating Status Filter Array
                 var aFiltered = [];
 
-                for (index = 0; index < aParcels.length;)
+                for (index = 0; index < aParcels.length; index++)
                 {
-                    document.getElementById("displayParcelOutput").innerHTML = 
-                        document.getElementById("displayParcelOutput").innerHTML
-                        + aParcels[index].trackingNumber + " | " 
-                        + aParcels[index].status  + " | " 
-                        + aParcels[index].destination + " | "
-                        + parseInt(aParcels[index].weight) + "g | "
-                        + aParcels[index].express + "<br>";
-                    index++;
+                    if (aParcels[index].status == selected)
+                    {
+                        document.getElementById("displayParcelOutput").innerHTML +=
+                            aParcels[index].trackingNumber + " | " 
+                            + aParcels[index].status  + " | " 
+                            + aParcels[index].destination + " | "
+                            + parseInt(aParcels[index].weight) + "g | "
+                            + aParcels[index].express + "<br>";
+                    }
+                    else if (selected == "All")
+                    {
+                        document.getElementById("displayParcelOutput").innerHTML +=
+                            aParcels[index].trackingNumber + " | " 
+                            + aParcels[index].status  + " | " 
+                            + aParcels[index].destination + " | "
+                            + parseInt(aParcels[index].weight) + "g | "
+                            + aParcels[index].express + "<br>";
+                    }
+                }
+            }
+
+            // Creating processParcel() Function
+            function processParcel()
+            {
+                var trackingInput = (document.getElementById("tbTrackingNumber").value); 
+                var newStatus = document.getElementById("processParcel_Status").value;
+
+
+                for (var index = 0; index < aParcels.length; index++)
+                {
+                    // Normal shipping
+                    var weight = parseInt(aParcels[index].weight);
+                    var subtotal = ((weight * 0.05) + 5);
+                    var total = subtotal * 1.13;
+                    total = total.toFixed(2);
+
+                    // Finding tracking number match
+                    if (trackingInput == aParcels[index].trackingNumber)
+                    {
+
+                        // Collecting new status
+                        aParcels[index].status = newStatus;
+                        displayParcels();
+
+                        // Express shipping
+                        if (aParcels[index].express == true)
+                        {
+                            total = total + 10;
+                            total = (total).toFixed(2);
+                            document.getElementById("tbTrackingNumber").value = "";
+                        }
+                        document.getElementById("tbTrackingNumber").value = "";
+
+                    }
+
+                    // Shipping total alert
+                    alert("Shipping for parcel " + trackingInput + " is: $" + total);
+                    document.getElementById("tbTrackingNumber").value = "";
+                    displayParcels();
                 }
             }
 		</script>
