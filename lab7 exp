@@ -132,6 +132,17 @@
             {
                 document.getElementById("displayParcelOutput").innerHTML = "";
                 var index = 0;
+                var selected = "";
+                // Creating Status Filter Arrays
+                var aProcessingFilter = [];
+                var aShippedFilter = [];
+                var aTransitFilter = [];
+                var aDeliveredFilter = [];
+
+                // Sorting Processing Filter
+                aProcessingFilter;
+
+                // Do While Loop
                 do
                     {
                     document.getElementById("displayParcelOutput").innerHTML = 
