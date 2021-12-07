@@ -44,19 +44,24 @@
             displayPatients();
             
             // Constructors
-            function Patient(n, bd, v)
+            function Patient(n, birthDate, v)
             {
                 this.name = n;
-                this.birthDate = bd;
+                this.birthDate = birthDate;
                 this.vaccinated = v;
 
                 // Method - age()
                 // return this patients age relative to the present Date
                 this.age = function () {
                     var dt = new Date();
-                    var age = (dt.getTime() - bd.getTime());
+                    var age = (dt.getTime() - birthDate.getTime());
                     age = Math.floor(age / 31536000000);
                     return age;
+                }
+
+                this.prettyBirthday = function () {
+                    var aMonths = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
+                    return aMonths[this.birthDate.getMonth() + " " + this.birthDate.getYear()];
                 }
 
             }
@@ -134,8 +139,7 @@
                 {
                     // Temp variable for populating patient data to table
                     var patientData = aPatients[i];
-                    var aMonths = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
-
+                    
                     // Temp variable for creating rows
                     var tempRow = document.createElement("tr");
 
@@ -147,7 +151,7 @@
                     
                     // Populating data columns
                     tempCol0.innerHTML = patientData.name; // Populates name
-                    tempCol1.innerHTML = patientData.birthDate; // Populates birthday
+                    tempCol1.innerHTML = patientData.prettyBirthday(); // Populates birthday
                     tempCol2.innerHTML = patientData.age(); // Populates age
 
                     // Get eligible age from textbox
