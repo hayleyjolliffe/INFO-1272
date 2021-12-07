@@ -144,9 +144,6 @@
                     var tempCol1 = document.createElement("td"); // DoB
                     var tempCol2 = document.createElement("td"); // Age
 
-                    // Getting birthday format
-                    var birthdayFormat;
-
                     
                     // Populating data columns
                     tempCol0.innerHTML = aPatients[i].name; // Populates name
@@ -155,7 +152,6 @@
 
                     // Get eligible age from textbox
                     var eligibleAge = document.getElementById("iEligibleAge").value;
-                    parseInt(eligibleAge);
                     
                     // Checking vaccine status
                     // Vaccinated
