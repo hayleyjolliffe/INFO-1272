@@ -95,11 +95,11 @@
                 var vaccinatedStatus = Patient(this.v);
                 
                 // Checking current status
-                if (v == true)
+                if (Patient(this.v) == true)
                 {
                     vaccinatedStatus = true;
                 }
-                else if (v == false)
+                else if (Patient(this.v) == false)
                 {
                     vaccinatedStatus = false;
                 }
@@ -142,10 +142,10 @@
                     // Creating data columns
                     var tempCol0 = document.createElement("td"); // Name
                     var tempCol1 = document.createElement("td"); // DoB
-                    var tempCol1 = document.createElement("td"); // Age
+                    var tempCol2 = document.createElement("td"); // Age
 
                     // Populating data columns
-                    tempoCol0.innerHTML = aPatients[i].n; // Populates name
+                    tempCol0.innerHTML = aPatients[i].n; // Populates name
                     tempCol1.innerHTML = aPatients[i].birthDate; // Populates birthday
                     tempCol2.innerHTML = aPatients[i].age; // Populates age
 
@@ -163,12 +163,12 @@
                     // Eligible
                     else if (aPatients[i].vaccinated == false && aPatients[i].age >= eligibleAge)
                     {
-                        tempCol1 = document.getElementsByTagName("td").addClass("eligible");
+                        tempCol2 = document.getElementsByTagName("td").addClass("eligible");
                     }
                     // Ineligible
                     else if (aPatients[i].vaccinated == false && aPatients[i].age < eligibleAge)
                     {
-                        tempCol1 = document.getElementsByTagName("td").addClass("ineligible");
+                        tempCol2 = document.getElementsByTagName("td").addClass("ineligible");
                     }
 
                     // Append columns -> row
