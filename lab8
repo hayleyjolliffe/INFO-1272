@@ -1,0 +1,191 @@
+<html>
+    <head>
+        <title>Lab 8</title>
+        <style>
+            body {
+                background-color: skyblue;
+            }
+            
+            table, td, th {
+                padding: 5px;
+                border: 1px double black;
+            }
+
+            .ineligible {
+                background-color: salmon;
+            }
+
+            .eligible {
+                background-color: sandybrown;
+            }
+
+            .vaccinated {
+                background-color: lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>IWD Vaccine Elibility</h1>
+        Eligible Age: <input id="iEligibleAge" type="number" placeholder="Age" value="70" onchange="">
+        <hr>
+        <p>Patients:</p>
+        <div id="patientOutput">
+            <table id="tPatients">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            // Data Members
+            var aPatients = [];
+
+            // Calls
+            createPatients(100);
+            displayPatients();
+            
+            // Constructors
+            function Patient(n, bd, v)
+            {
+                this.name = n;
+                this.birthDate = bd;
+                this.vaccinated = v;
+
+                // Method - age()
+                // return this patients age relative to the present Date
+                this.age = function age() {
+                    var dt = new Date();
+                    var age = (dt.getFullYear() - bd.getFullYear());
+                }
+
+            }
+
+            // Functions 
+            function createPatients(num)
+            {
+                // Create Random Patients
+                var names = ["Emily","Hannah","Madison","Ashley","Sarah","Alexis","Samantha","Jessica","Elizabeth","Taylor","Lauren","Alyssa","Kayla","Abigail","Brianna","Olivia","Emma","Megan","Grace","Victoria","Rachel","Anna","Sydney","Destiny","Morgan","Jennifer","Jasmine","Haley","Julia","Kaitlyn","Nicole","Amanda","Katherine","Natalie","Hailey","Alexandra","Savannah","Chloe","Rebecca","Stephanie","Maria","Sophia","Mackenzie","Allison","Isabella","Amber","Mary","Danielle","Gabrielle","Jordan","Brooke","Michelle","Sierra","Katelyn","Andrea","Madeline","Sara","Kimberly","Courtney","Erin","Brittany","Vanessa","Jenna","Jacqueline","Caroline","Faith","Makayla","Bailey","Paige","Shelby","Melissa","Kaylee","Christina","Trinity","Mariah","Caitlin","Autumn","Marissa","Breanna","Angela","Catherine","Zoe","Briana","Jada","Laura","Claire","Alexa","Kelsey","Kathryn","Leslie","Alexandria","Sabrina","Mia","Isabel","Molly","Leah","Katie","Gabriella","Cheyenne","Cassandra","Tiffany","Erica","Lindsey","Kylie","Amy","Diana","Cassidy","Mikayla","Ariana","Margaret","Kelly","Miranda","Maya","Melanie","Audrey","Jade","Gabriela","Caitlyn","Jacob","Michael","Matthew","Joshua","Christopher","Nicholas","Andrew","Joseph","Daniel","Tyler","William","Brandon","Ryan","John","Zachary","David","Anthony","James","Justin","Alexander","Jonathan","Christian","Austin","Dylan","Ethan","Benjamin","Noah","Samuel","Robert","Nathan","Cameron","Kevin","Thomas","Jose","Hunter","Jordan","Kyle","Caleb","Jason","Logan","Aaron","Eric","Brian","Gabriel","Adam","Jack","Isaiah","Juan","Luis","Connor","Charles","Elijah","Isaac","Steven","Evan","Jared","Sean","Timothy","Luke","Cody","Nathaniel","Alex","Seth","Mason","Richard","Carlos","Angel","Patrick","Devin","Bryan","Cole","Jackson","Ian","Garrett","Trevor","Jesus","Chase","Adrian","Mark","Blake","Sebastian","Antonio","Lucas","Jeremy","Gavin","Miguel","Julian","Dakota","Alejandro","Jesse","Dalton","Bryce","Tanner","Kenneth","Stephen","Jake","Victor","Spencer"];
+                var yearMin = 1920;
+                var yearMax = 2010;
+
+                for (var i = 1; i <= num; i++)
+                {
+                    var n = names[randInRange(0, names.length-1)];
+                    // yyyy-mm-dd
+                    var bd = new Date(randInRange(yearMin, yearMax).toString() + "-" + randInRange(1, 12).toString() + "-" + randInRange(1, 28).toString());
+                    var v = Boolean(randInRange(0, 1)).valueOf();
+                    var p = new Patient(n, bd, v);
+                    aPatients.push(p);
+                }
+
+                function randInRange(min, max)
+                {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+            }
+
+            console.log(aPatients);
+
+            
+
+            // displayPatients() Function
+            function displayPatients()
+            {
+                // Getting data
+                var patientsTable = document.getElementById("tPatients");
+                var vaccinatedStatus = Patient(this.v);
+                
+                // Checking current status
+                if (v == true)
+                {
+                    vaccinatedStatus = true;
+                }
+                else if (v == false)
+                {
+                    vaccinatedStatus = false;
+                }
+
+                // Clear the table's current contents
+                document.getElementByTagName("tbody")[0].remove();
+
+                // Create table elements to populate with patient data
+                // Table
+                var tbody = document.createElement("tbody");
+                
+                // Header
+                var headerRow = document.createElement("tr");
+                
+                var nameTh = document.createElement("th");
+                var birthdayTh = document.createElement("th");
+                var eligibleTh = document.createElement("th");
+
+                // Populating header
+                nameTh.innerHTML = "Patient Name";
+                birthdayTh.innerHTML = "Date of Birth";
+                eligibleTh.innerHTML = "Age (Eligibility)";
+
+                // Append header
+                headerRow.appendChild(nameTh);
+                headerRow.appendChild(birthdayTh);
+                headerRow.appendchild(eligibleTh);
+
+                tbody.appendChild(headerRow);
+
+                // Creating rows for patient data
+                for (var i = 0; i < aPatients.length; i++)
+                {
+                    // Temp variable for populating patient data to table
+                    var patientData = aPatients[i];
+
+                    // Temp variable for creating rows
+                    var tempRow = document.createElement("tr");
+
+                    // Creating data columns
+                    var tempCol0 = document.createElement("td"); // Name
+                    var tempCol1 = document.createElement("td"); // DoB
+                    var tempCol1 = document.createElement("td"); // Age
+
+                    // Populating data columns
+                    tempoCol0.innerHTML = aPatients[i].n; // Populates name
+                    tempCol1.innerHTML = aPatients[i].birthDate; // Populates birthday
+                    tempCol2.innerHTML = aPatients[i].age; // Populates age
+
+                    // Get eligible age from textbox
+                    var eligibleAge = document.getElementById("iEligibleAge").value;
+                    parseInt(eligibleAge);
+                    
+                    // Checking vaccine status
+                    // Vaccinated
+                    if (aPatients[i].vaccinated == true)
+                    {
+                        tempCol1 = document.getElementsByTagName("td").addClass("vaccinated"); // Changes colour to vaccinated
+
+                    }
+                    // Eligible
+                    else if (aPatients[i].vaccinated == false && aPatients[i].age >= eligibleAge)
+                    {
+                        tempCol1 = document.getElementsByTagName("td").addClass("eligible");
+                    }
+                    // Ineligible
+                    else if (aPatients[i].vaccinated == false && aPatients[i].age < eligibleAge)
+                    {
+                        tempCol1 = document.getElementsByTagName("td").addClass("ineligible");
+                    }
+
+                    // Append columns -> row
+                    tempRow.appendChild(tempCol0);
+                    tempRow.appendChild(tempCol1);
+                    tempRow.appendChild(tempCol2);
+
+                    // Append rows -> tbody
+                    tbody.appendChild(tempRow);
+                }
+
+                // Append tbody -> table
+                patientsTable.appendChild(tbody);
+            }
+
+
+
+        </script>
+    </body>
+</html>
