@@ -52,7 +52,7 @@
 
                 // Method - age()
                 // return this patients age relative to the present Date
-                this.age = function age() {
+                this.age = function () {
                     var dt = new Date();
                     var age = (dt.getFullYear() - bd.getFullYear());
                 }
@@ -93,6 +93,7 @@
                 // Getting data
                 var patientsTable = document.getElementById("tPatients");
                 var vaccinatedStatus = Patient(this.v);
+                var birthDate = Patient(this.bd);
                 
                 // Checking current status
                 if (Patient(this.v) == true)
@@ -135,6 +136,7 @@
                 {
                     // Temp variable for populating patient data to table
                     var patientData = aPatients[i];
+                    var aMonths = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
 
                     // Temp variable for creating rows
                     var tempRow = document.createElement("tr");
@@ -151,7 +153,7 @@
                     tempCol2.innerHTML = aPatients[i].eligibleAge; // Populates age
 
                     // Get eligible age from textbox
-                    var eligibleAge = document.getElementById("iEligibleAge").value;
+                    var ageInput = parseInt(document.getElementById("iEligibleAge").innerHTML);
                     
                     // Checking vaccine status
                     // Vaccinated
@@ -161,12 +163,12 @@
 
                     }
                     // Eligible
-                    else if (aPatients[i].vaccinated == false && aPatients[i].age >= eligibleAge)
+                    else if (aPatients[i].vaccinated == false && aPatients[i].age >= ageInput)
                     {
                         tempCol2.class = "eligible";
                     }
                     // Ineligible
-                    else if (aPatients[i].vaccinated == false && aPatients[i].age < eligibleAge)
+                    else if (aPatients[i].vaccinated == false && aPatients[i].age < ageInput)
                     {
                         tempCol2.class = "ineligible";
                     }
