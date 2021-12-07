@@ -151,24 +151,24 @@
                     tempCol2.innerHTML = patientData.age(); // Populates age
 
                     // Get eligible age from textbox
-                    var ageInput = parseInt(document.getElementById("iEligibleAge").innerHTML);
+                    var ageInput = document.getElementById("iEligibleAge").value;
                     
                     // Checking vaccine status
                     // Vaccinated
-                    if (vaccinatedStatus == true)
+                    if (patientData.vaccinated == true)
                     {
-                        tempCol2.class = "vaccinated"; // Changes vaccination colour
+                        tempCol2.className = "vaccinated"; // Changes vaccination colour
 
                     }
                     // Eligible
-                    else if (vaccinatedStatus == false && patientData.age() >= ageInput)
+                    else if (patientData.vaccinated == false && patientData.age() >= ageInput)
                     {
-                        tempCol2.class = "eligible";
+                        tempCol2.className = "eligible";
                     }
                     // Ineligible
-                    else if (vaccinatedStatus == false && patientData.age() < ageInput)
+                    else if (patientData.vaccinated == false && patientData.age() < ageInput)
                     {
-                        tempCol2.class = "ineligible";
+                        tempCol2.className = "ineligible";
                     }
 
                     // Append columns -> row
