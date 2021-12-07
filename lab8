@@ -105,7 +105,7 @@
                 }
 
                 // Clear the table's current contents
-                document.getElementByTagName("tbody")[0].remove();
+                document.getElementsByTagName("tbody")[0].remove();
 
                 // Create table elements to populate with patient data
                 // Table
@@ -126,7 +126,7 @@
                 // Append header
                 headerRow.appendChild(nameTh);
                 headerRow.appendChild(birthdayTh);
-                headerRow.appendchild(eligibleTh);
+                headerRow.appendChild(eligibleTh);
 
                 tbody.appendChild(headerRow);
 
@@ -157,18 +157,18 @@
                     // Vaccinated
                     if (aPatients[i].vaccinated == true)
                     {
-                        tempCol1 = document.getElementsByTagName("td").addClass("vaccinated"); // Changes colour to vaccinated
+                        tempCol2.class = "vaccinated"; // Changes vaccination colour
 
                     }
                     // Eligible
                     else if (aPatients[i].vaccinated == false && aPatients[i].age >= eligibleAge)
                     {
-                        tempCol2 = document.getElementsByTagName("td").addClass("eligible");
+                        tempCol2.class = "eligible";
                     }
                     // Ineligible
                     else if (aPatients[i].vaccinated == false && aPatients[i].age < eligibleAge)
                     {
-                        tempCol2 = document.getElementsByTagName("td").addClass("ineligible");
+                        tempCol2.class = "ineligible";
                     }
 
                     // Append columns -> row
@@ -183,8 +183,6 @@
                 // Append tbody -> table
                 patientsTable.appendChild(tbody);
             }
-
-
 
         </script>
     </body>
