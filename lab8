@@ -54,7 +54,9 @@
                 // return this patients age relative to the present Date
                 this.age = function () {
                     var dt = new Date();
-                    var age = (dt.getFullYear() - bd.getFullYear());
+                    var age = (dt.getTime() - bd.getTime());
+                    age = Math.floor(age / 31536000000);
+                    return age;
                 }
 
             }
@@ -82,10 +84,6 @@
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
             }
-
-            console.log(aPatients);
-
-            
 
             // displayPatients() Function
             function displayPatients()
@@ -148,27 +146,27 @@
 
                     
                     // Populating data columns
-                    tempCol0.innerHTML = aPatients[i].name; // Populates name
-                    tempCol1.innerHTML = aPatients[i].birthDate; // Populates birthday
-                    tempCol2.innerHTML = aPatients[i].eligibleAge; // Populates age
+                    tempCol0.innerHTML = patientData.name; // Populates name
+                    tempCol1.innerHTML = patientData.birthDate; // Populates birthday
+                    tempCol2.innerHTML = patientData.age(); // Populates age
 
                     // Get eligible age from textbox
                     var ageInput = parseInt(document.getElementById("iEligibleAge").innerHTML);
                     
                     // Checking vaccine status
                     // Vaccinated
-                    if (aPatients[i].vaccinated == true)
+                    if (vaccinatedStatus == true)
                     {
                         tempCol2.class = "vaccinated"; // Changes vaccination colour
 
                     }
                     // Eligible
-                    else if (aPatients[i].vaccinated == false && aPatients[i].age >= ageInput)
+                    else if (vaccinatedStatus == false && patientData.age() >= ageInput)
                     {
                         tempCol2.class = "eligible";
                     }
                     // Ineligible
-                    else if (aPatients[i].vaccinated == false && aPatients[i].age < ageInput)
+                    else if (vaccinatedStatus == false && patientData.age() < ageInput)
                     {
                         tempCol2.class = "ineligible";
                     }
