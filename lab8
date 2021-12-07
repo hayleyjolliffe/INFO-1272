@@ -144,10 +144,14 @@
                     var tempCol1 = document.createElement("td"); // DoB
                     var tempCol2 = document.createElement("td"); // Age
 
+                    // Getting birthday format
+                    var birthdayFormat;
+
+                    
                     // Populating data columns
-                    tempCol0.innerHTML = aPatients[i].n; // Populates name
+                    tempCol0.innerHTML = aPatients[i].name; // Populates name
                     tempCol1.innerHTML = aPatients[i].birthDate; // Populates birthday
-                    tempCol2.innerHTML = aPatients[i].age; // Populates age
+                    tempCol2.innerHTML = aPatients[i].eligibleAge; // Populates age
 
                     // Get eligible age from textbox
                     var eligibleAge = document.getElementById("iEligibleAge").value;
