@@ -26,7 +26,7 @@
     </head>
     <body>
         <h1>IWD Vaccine Elibility</h1>
-        Eligible Age: <input id="iEligibleAge" type="number" placeholder="Age" value="70" onchange="">
+        Eligible Age: <input id="iEligibleAge" type="number" placeholder="Age" value="70" onchange="displayPatients()">
         <hr>
         <p>Patients:</p>
         <div id="patientOutput">
@@ -61,7 +61,7 @@
 
                 this.prettyBirthday = function () {
                     var aMonths = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
-                    return aMonths[this.birthDate.getMonth() + " " + this.birthDate.getYear()];
+                    return aMonths[this.birthDate.getMonth()] + " " + this.birthDate.getFullYear();
                 }
 
             }
@@ -95,18 +95,7 @@
             {
                 // Getting data
                 var patientsTable = document.getElementById("tPatients");
-                var vaccinatedStatus = Patient(this.v);
                 var birthDate = Patient(this.bd);
-                
-                // Checking current status
-                if (Patient(this.v) == true)
-                {
-                    vaccinatedStatus = true;
-                }
-                else if (Patient(this.v) == false)
-                {
-                    vaccinatedStatus = false;
-                }
 
                 // Clear the table's current contents
                 document.getElementsByTagName("tbody")[0].remove();
