@@ -8,3 +8,4 @@
 ##### Lab 6: 'Grocery Store', due 11/14/21
 ##### Lab 7: 'Postal Service', due 11/28/21
 ##### Lab 8: 'Vaccine Status', due 12/10/21
+##### Final B: 'Shop', combined project with INFO-1251, due 12/17/21
