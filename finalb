@@ -177,19 +177,19 @@
 				console.log(customerArray);
 
 				// JEFF SMITH
-				customerArray.push("Jeff", "Smith", "London", "ON", "17", "Male");
+				customerArray.push(new Customer("Jeff", "Smith", "London", "ON", "17", "Male"));
 
 				// PAULINE MACINTYRE
-				customerArray.push("Pauline", "MacIntyre", "Sydney", "NS", "25", "Female");
+				customerArray.push(new Customer("Pauline", "MacIntyre", "Sydney", "NS", "25", "Female"));
 
 				// KEVIN FIRTH
-				customerArray.push("Kevin", "Firth", "London", "ON", "41", "Male");
+				customerArray.push(new Customer("Kevin", "Firth", "London", "ON", "41", "Male"));
 
 				// CAROL GREEN
-				customerArray.push("Carol", "Green", "London", "ON", "23", "Female");
+				customerArray.push(new Customer("Carol", "Green", "London", "ON", "23", "Female"));
 
 				// LYNDA REYNOLDS
-				customerArray.push("Lynda", "Reynolds", "Winnipeg", "MB", "37", "Female");
+				customerArray.push(new Customer("Lynda", "Reynolds", "Winnipeg", "MB", "37", "Female"));
 
 				// Log customerArray[] after
 				console.log(customerArray);
