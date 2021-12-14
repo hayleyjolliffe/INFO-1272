@@ -201,14 +201,17 @@
 			function registerCustomer()
 			{
 				// Creating temp variables for new customers
-				var firstName = document.getElementById("tbFirstName");
-				var lastName = document.getElementById("tbLastName");
-				var city = document.getElementById("tbCity");
+				var firstName = document.getElementById("tbFirstName").innerHTML;
+				var lastName = document.getElementById("tbLastName").innerHTML;
+				var city = document.getElementById("tbCity").innerHTML;
 				var province = document.getElementById("ddQueryProvince").value;
-				var age = document.getElementById("tbQueryAge");
-				var gender = document.getElementById("ddQueryGender");
+				var age = document.getElementById("tbQueryAge").value;
+				var gender = document.getElementById("ddQueryGender").value;
 				
 				var tempCustomer = new Customer(firstName, lastName, city, province, age, gender);
+
+				// Parsing data
+				age = parseFloat(age);
 
 				// Push temp customer to array
 				customerArray.push(tempCustomer);
