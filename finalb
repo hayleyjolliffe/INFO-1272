@@ -167,7 +167,20 @@
 				function toString()
 				{
 					// Create variable for string output
+					/*
+						Format:
+						"[FULL NAME] is a [AGE] year old [GENDER] from [CITY], [PROVINCE]."
+					*/
 					var string;							// String
+					string = (
+						firstName + " " +
+						lastName + " is a " + 
+						age + " year old " +
+						gender + " from " +
+						city + ", " +
+						province + "."
+					);
+
 				}
 			}
 
