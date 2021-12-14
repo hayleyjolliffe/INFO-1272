@@ -180,6 +180,11 @@
 						city + ", " +
 						province + "."
 					);
+
+					// Log string
+					console.log(string);
+
+					// Last update: UNDEFINED
 				}
 			}
 
