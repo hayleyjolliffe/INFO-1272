@@ -195,6 +195,11 @@
 				console.log(customerArray);
 
 				// Last update: FUNCTIONING
+
+
+				// METHOD — Returns customer details
+
+
 			}
 
 
@@ -204,7 +209,7 @@
 
 			}
 
-			
+
 			// Creating REGISTER CUSTOMER (Step 6)
 			function registerCustomer()
 			{
@@ -248,7 +253,6 @@
 
 				// Call DISPLAY CUSTOMERS
 				// displayCustomers();
-
 			}
 			
 		</script>
