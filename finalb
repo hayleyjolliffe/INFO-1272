@@ -316,6 +316,8 @@
 
 				// Log gender
 				console.log(tAge);
+
+				// Last update: FUNCTIONING
 			}
 
 
