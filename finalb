@@ -204,11 +204,26 @@
 				var firstName = document.getElementById("");
 				var lastName = document.getElementById("");
 				var city = document.getElementById("");
-				var province = document.getElementById("");
+				var province = document.getElementById("").value;
 				var age = document.getElementById("");
 				var gender = document.getElementById("");
+				
+				var tempCustomer = new Customer(firstName, lastName, city, province, age, gender);
 
-				var tempCustomer = new Customer();
+				// Push temp customer to array
+				tempCustomer.push(customerArray);
+
+				// Log new array
+				console.log(customerArray);
+
+				// Clear form for next customer
+				firstName.innerHTML = "";
+				lastName.innerHTML = "";
+				city.innerHTML = "";
+				province.value = "ON";
+				age.innerHTML = "";
+				gender.value = "Male";
+
 			}
 			
 		</script>
