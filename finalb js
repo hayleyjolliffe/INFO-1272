@@ -1,0 +1,224 @@
+/*
+
+				GLOBALS
+
+			*/
+			// Creating CUSTOMER ARRAY (Step 2)
+			var customerArray = [];
+
+
+			/*
+
+				CONSTRUCTORS
+
+			*/
+			// Creating CUSTOMER (Step 3)
+			function Customer(firstName, lastName, city, province, age, gender)
+			{
+				// Creating objects
+				this.firstName = firstName;				// String
+				this.lastName = lastName;				// String
+				this.city = city;						// String
+				this.province = province;				// String
+				this.age = age;							// Number
+				this.gender = gender;					// String
+				this.string = function toString() {
+					// Create variable for string output
+					/*
+						Format:
+						"[FULL NAME] is a [AGE] year old [GENDER] from [CITY], [PROVINCE]."
+					*/
+					var string;							// String
+					string = (
+						this.firstName + " " +
+						this.lastName + " " +
+						this.age + " year old " +
+						this.city + ", " +
+						this.province + "."
+					);
+
+					// Log string
+					console.log(string);
+
+					// Last update: OBJECT UNDEFINED
+				}
+			}
+
+
+			/*
+
+				FUNCTIONS
+
+			*/
+			// Creating LOAD SAMPLES (Step 4)
+			function loadSamples()
+			{
+				// FORMAT: (first, last, city, province, age, gender)
+				// Log customerArray[] before
+				console.log(customerArray);
+
+				// JEFF SMITH
+				customerArray.push(new Customer("Jeff", "Smith", "London", "ON", "17", "Male"));
+
+				// PAULINE MACINTYRE
+				customerArray.push(new Customer("Pauline", "MacIntyre", "Sydney", "NS", "25", "Female"));
+
+				// KEVIN FIRTH
+				customerArray.push(new Customer("Kevin", "Firth", "London", "ON", "41", "Male"));
+
+				// CAROL GREEN
+				customerArray.push(new Customer("Carol", "Green", "London", "ON", "23", "Female"));
+
+				// LYNDA REYNOLDS
+				customerArray.push(new Customer("Lynda", "Reynolds", "Winnipeg", "MB", "37", "Female"));
+
+				// Log customerArray[] after
+				console.log(customerArray);
+
+				// Last update: FUNCTIONING
+			}
+
+
+			// Creating DISPLAY CUSTOMERS (Step 5)
+			function displayCustomers()
+			{
+				// Testing output
+				document.getElementById("").innerHTML = customerArray[0]; // Doesn't work, should output Jeff Smith
+				
+				// Looping through toString()
+				for (var i =0; i <= customerArray.length; i++)
+				{
+					// Collecting data
+					this.firstName = customerArray[i].firstName;
+					this.lastName = customerArray[i].lastName;
+					this.age = parseInt(customerArray[i].age);
+					this.city = customerArray[i].city;
+					this.province = customerArray[i].province;
+
+					// Creating temp variables
+					var first = this.firstName;
+					var last = this.lastName;
+					var age = this.age;
+					var city = this.city;
+					var province = this.province;
+					
+					// Displaying data
+					this.string = document.getElementById("");
+					
+
+					var output = this.string;
+				}
+
+                // Last update: CANNOT SET VALUE OF NULL AT 86
+                // Didn't put ID into ("") yet
+			}
+
+
+			// Creating REGISTER CUSTOMER (Step 6)
+			function registerCustomer()
+			{
+				// Creating temp variables for new customers
+				var firstName = document.getElementById("tbFirstName").innerHTML;
+				var lastName = document.getElementById("tbLastName").innerHTML;
+				var city = document.getElementById("tbCity").innerHTML;
+				var province = document.getElementById("ddProvince").value;
+				var age = document.getElementById("tbAge").innerHTML;
+				var gender = document.getElementById("ddGender").value;
+				
+				// Parsing data
+				age = parseInt(age);
+
+				if (gender.value == "male")
+				{
+					gender = "Male";
+				}
+
+				else if (gender.value == "female")
+				{
+					gender = "Female";
+				}
+
+				// Creating new customer
+				var tempCustomer = new Customer(firstName, lastName, city, province, age, gender);
+
+				// Push temp customer to array
+				customerArray.push(tempCustomer);
+
+				// Log new array
+				console.log(customerArray);
+
+				// Clear form for next customer
+				firstName.innerHTML = "";
+				lastName.innerHTML = "";
+				city.innerHTML = "";
+				province.value = "ON";
+				age.innerHTML = "";
+				gender.value = "male";
+
+				// Call DISPLAY CUSTOMERS
+				// displayCustomers();
+			}
+			
+
+			// Creating QUERY DATA (Step 7)
+			function queryData()
+			{
+				// Creating variables
+				var tTotal;
+				var tProvince;
+				var tGender;
+				var tAge;
+				
+				// Creating filter arrays
+				var aProvince = [];
+				var aGender = [];
+				var aAge = [];
+
+				// Collecting data
+				tTotal = customerArray.length;
+				tProvince = aProvince.length;
+				tGender = aGender.length;
+				tAge = aAge.length;
+
+				// Selecting filters
+				// ALL
+				// document.getElementById("").innerHTML = customerArray.length;
+				
+				// Log all
+				console.log(tTotal);
+
+				// PROVINCE
+				for (var i=0; i <= customerArray.length; i++)
+
+				// Log province
+				console.log(tProvince);
+
+				// GENDER
+				for (var i=0; i <= customerArray.length; i++)
+
+				// Log gender
+				console.log(tGender);
+
+				// AGE
+				for (var i =0; i <= customerArray.length; i++)
+				
+
+				// Log age
+				console.log(tAge);
+
+				// Last update: FUNCTIONING
+			}
+
+
+			// Creating INITIALIZE for onload
+			function initialize()
+			{
+				// Load sample customers
+				loadSamples();
+
+				// Display sample customers
+				displayCustomers();
+
+				// Last updated: FUNCTIONING
+				// Last updated: BUTTON FUNCTIONING
+			}
