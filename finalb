@@ -279,21 +279,43 @@
 			// Creating QUERY DATA (Step 7)
 			function queryData()
 			{
-				// Collecting data
-				var tTotal = customerArray.length;
+				// Creating variables
+				var tTotal;
 				var tProvince;
 				var tGender;
 				var tAge;
 				
 				// Creating filter arrays
-				var aTotal = [];
 				var aProvince = [];
 				var aGender = [];
 				var aAge = [];
 
-				// Selecting filter
+				// Collecting data
+				tTotal = customerArray.length;
+				tProvince = aProvince.length;
+				tGender = aGender.length;
+				tAge = aAge.length;
+
+				// Selecting filters
 				// ALL
 				
+				// Log all
+				console.log(tTotal);
+
+				// PROVINCE
+
+				// Log province
+				console.log(tProvince);
+
+				// GENDER
+
+				// Log gender
+				console.log(tGender);
+
+				// AGE
+
+				// Log gender
+				console.log(tAge);
 			}
 
 
