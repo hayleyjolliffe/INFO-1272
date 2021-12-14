@@ -162,10 +162,7 @@
 				this.province = province;				// String
 				this.age = age;							// Number
 				this.gender = gender;					// String
-			
-				// Creating output method
-				function toString()
-				{
+				this.string = function toString() {
 					// Create variable for string output
 					/*
 						Format:
@@ -174,9 +171,8 @@
 					var string;							// String
 					string = (
 						this.firstName + " " +
-						this.lastName + " is a " + 
+						this.lastName + " " +
 						this.age + " year old " +
-						this.gender + " from " +
 						this.city + ", " +
 						this.province + "."
 					);
