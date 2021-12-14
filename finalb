@@ -205,13 +205,24 @@
 				var lastName = document.getElementById("tbLastName").innerHTML;
 				var city = document.getElementById("tbCity").innerHTML;
 				var province = document.getElementById("ddQueryProvince").value;
-				var age = document.getElementById("tbQueryAge").value;
+				var age = document.getElementById("tbQueryAge").innerHTML;
 				var gender = document.getElementById("ddQueryGender").value;
 				
-				var tempCustomer = new Customer(firstName, lastName, city, province, age, gender);
-
 				// Parsing data
-				age = parseFloat(age);
+				age = parseInt(age);
+
+				if (gender.value == "Male")
+				{
+					gender = "Male";
+				}
+
+				else if (gender.value == "Female")
+				{
+					gender = "Female";
+				}
+
+				// Creating new customer
+				var tempCustomer = new Customer(firstName, lastName, city, province, age, gender);
 
 				// Push temp customer to array
 				customerArray.push(tempCustomer);
@@ -226,6 +237,9 @@
 				province.value = "ON";
 				age.innerHTML = "";
 				gender.value = "Male";
+
+				// Call DISPLAY CUSTOMERS
+				// displayCustomers();
 
 			}
 			
