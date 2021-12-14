@@ -223,7 +223,13 @@
 			function displayCustomers()
 			{
 				// Testing output
-				document.getElementById("").innerHTML = customerArray[0]; // Should output Jeff Smith
+				document.getElementById("").innerHTML = customerArray[0]; // Doesn't work, should output Jeff Smith
+				
+				// Looping through toString()
+				for (var i =0; i <= customerArray.length; i++)
+				{
+					
+				}
 			}
 
 
