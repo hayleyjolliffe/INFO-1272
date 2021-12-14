@@ -197,7 +197,15 @@
 				// Last update: FUNCTIONING
 			}
 
-			// Creating REGISTER CUSTOMER (Step 5)
+
+			// Creating DISPLAY CUSTOMERS (Step 5)
+			function displayCustomers()
+			{
+
+			}
+
+			
+			// Creating REGISTER CUSTOMER (Step 6)
 			function registerCustomer()
 			{
 				// Creating temp variables for new customers
