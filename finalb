@@ -298,23 +298,28 @@
 
 				// Selecting filters
 				// ALL
+				// document.getElementById("").innerHTML = customerArray.length;
 				
 				// Log all
 				console.log(tTotal);
 
 				// PROVINCE
+				for (var i=0; i <= customerArray.length; i++)
 
 				// Log province
 				console.log(tProvince);
 
 				// GENDER
+				for (var i=0; i <= customerArray.length; i++)
 
 				// Log gender
 				console.log(tGender);
 
 				// AGE
+				for (var i =0; i <= customerArray.length; i++)
+				
 
-				// Log gender
+				// Log age
 				console.log(tAge);
 
 				// Last update: FUNCTIONING
