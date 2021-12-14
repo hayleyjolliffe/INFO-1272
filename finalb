@@ -201,27 +201,27 @@
 			function registerCustomer()
 			{
 				// Creating temp variables for new customers
-				var firstName = document.getElementById("");
-				var lastName = document.getElementById("");
-				var city = document.getElementById("");
-				var province = document.getElementById("").value;
-				var age = document.getElementById("");
-				var gender = document.getElementById("");
+				var firstName = document.getElementById("tbFirstName");
+				var lastName = document.getElementById("tbLastName");
+				var city = document.getElementById("tbCity");
+				var province = document.getElementById("ddQueryProvince").value;
+				var age = document.getElementById("tbQueryAge");
+				var gender = document.getElementById("ddQueryGender");
 				
 				var tempCustomer = new Customer(firstName, lastName, city, province, age, gender);
 
 				// Push temp customer to array
-				tempCustomer.push(customerArray);
+				customerArray.push(tempCustomer);
 
 				// Log new array
 				console.log(customerArray);
 
 				// Clear form for next customer
-				firstName.innerHTML = "tbFirstName";
-				lastName.innerHTML = "tbLastName";
-				city.innerHTML = "tbCity";
+				firstName.innerHTML = "";
+				lastName.innerHTML = "";
+				city.innerHTML = "";
 				province.value = "ON";
-				age.innerHTML = "tbAge";
+				age.innerHTML = "";
 				gender.value = "Male";
 
 			}
