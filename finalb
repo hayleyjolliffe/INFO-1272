@@ -275,7 +275,15 @@
 				// displayCustomers();
 			}
 			
-			// Creating INITIALIZE
+
+			// Creating QUERY DATA (Step 7)
+			function queryData()
+			{
+				
+			}
+
+
+			// Creating INITIALIZE for onload
 			function initialize()
 			{
 				// Load sample customers
