@@ -129,7 +129,7 @@
 				Age:
 				<input type="number" id="tbQueryAge" value=18 />
 				&nbsp;
-				<input type="button" id="btnQuery" value="Query" class="button"/>
+				<input type="button" id="btnQuery" value="Query" class="button" onclick="queryData()"/>
 				<hr>
 				<div id="divQueryOutput" class="outputStyle">[Query Output Here]</div>
 			</fieldset>
