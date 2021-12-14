@@ -280,7 +280,10 @@
 			function queryData()
 			{
 				// Collecting data
-				var filter;
+				var tTotal = customerArray.length;
+				var tProvince;
+				var tGender;
+				var tAge;
 				
 				// Creating filter arrays
 				var aTotal = [];
