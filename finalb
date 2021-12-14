@@ -196,6 +196,20 @@
 
 				// Last update: FUNCTIONING
 			}
+
+			// Creating REGISTER CUSTOMER (Step 5)
+			function registerCustomer()
+			{
+				// Creating temp variables for new customers
+				var firstName = document.getElementById("");
+				var lastName = document.getElementById("");
+				var city = document.getElementById("");
+				var province = document.getElementById("");
+				var age = document.getElementById("");
+				var gender = document.getElementById("");
+
+				var tempCustomer = new Customer();
+			}
 			
 		</script>
 	</body>
