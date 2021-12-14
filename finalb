@@ -226,7 +226,8 @@
 			// Creating DISPLAY CUSTOMERS (Step 5)
 			function displayCustomers()
 			{
-
+				// Testing output
+				document.getElementById("").innerHTML = customerArray[0]; // Should output Jeff Smith
 			}
 
 
@@ -352,7 +353,7 @@
 	> Step 002: DONE
 	> Step 003: IN PROGRESS
 	> Step 004: IN PROGRESS
-	> Step 005: NOT STARTED
+	> Step 005: IN PROGRESS
 	> Step 006: IN PROGRESS
 	> Step 007: IN PROGRESS
 
