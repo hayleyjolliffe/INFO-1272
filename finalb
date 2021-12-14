@@ -162,6 +162,40 @@
 				this.age = age;							// Number
 				this.gender = gender;					// String
 			}
+
+
+			/*
+
+				FUNCTIONS
+
+			*/
+			// Creating LOAD SAMPLES (Step 4)
+			function loadSamples()
+			{
+				// FORMAT: (first, last, city, province, age, gender)
+				// Log customerArray[] before
+				console.log(customerArray);
+
+				// JEFF SMITH
+				customerArray.push("Jeff", "Smith", "London", "ON", "17", "Male");
+
+				// PAULINE MACINTYRE
+				customerArray.push("Pauline", "MacIntyre", "Sydney", "NS", "25", "Female");
+
+				// KEVIN FIRTH
+				customerArray.push("Kevin", "Firth", "London", "ON", "41", "Male");
+
+				// CAROL GREEN
+				customerArray.push("Carol", "Green", "London", "ON", "23", "Female");
+
+				// LYNDA REYNOLDS
+				customerArray.push("Lynda", "Reynolds", "Winnipeg", "MB", "37", "Female");
+
+				// Log customerArray[] after
+				console.log(customerArray);
+
+				// Last update: FUNCTIONING
+			}
 			
 		</script>
 	</body>
