@@ -48,7 +48,7 @@
 			height:			auto
 		}
 	</style>
-	<body>
+	<body onload="initialize()">
 		<h1>Customer Data</h1>
 		
 		<!-- Registration Form -->
@@ -275,6 +275,17 @@
 				// displayCustomers();
 			}
 			
+			// Creating INITIALIZE
+			function initialize()
+			{
+				// Load sample customers
+				loadSamples();
+
+				// Display sample customers
+				displayCustomers();
+
+				// Last updated: FUNCTIONING
+			}
 		</script>
 	</body>
 </html>
