@@ -173,12 +173,12 @@
 					*/
 					var string;							// String
 					string = (
-						firstName + " " +
-						lastName + " is a " + 
-						age + " year old " +
-						gender + " from " +
-						city + ", " +
-						province + "."
+						this.firstName + " " +
+						this.lastName + " is a " + 
+						this.age + " year old " +
+						this.gender + " from " +
+						this.city + ", " +
+						this.province + "."
 					);
 
 					// Log string
