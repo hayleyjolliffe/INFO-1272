@@ -22,7 +22,7 @@
 				this.province = province;				// String
 				this.age = age;							// Number
 				this.gender = gender;					// String
-				this.string = function toString() {
+				this.output = function toString() {
 					// Create variable for string output
 					/*
 						Format:
@@ -103,10 +103,10 @@
 					var province = this.province;
 					
 					// Displaying data
-					this.string = document.getElementById("");
+					this.output = document.getElementById("");
 					
 
-					var output = this.string;
+					var output = this.output;
 				}
 
                 // Last update: CANNOT SET VALUE OF NULL AT 86
