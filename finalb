@@ -237,19 +237,19 @@
 				var firstName = document.getElementById("tbFirstName").innerHTML;
 				var lastName = document.getElementById("tbLastName").innerHTML;
 				var city = document.getElementById("tbCity").innerHTML;
-				var province = document.getElementById("ddQueryProvince").value;
-				var age = document.getElementById("tbQueryAge").innerHTML;
-				var gender = document.getElementById("ddQueryGender").value;
+				var province = document.getElementById("ddProvince").value;
+				var age = document.getElementById("tbAge").innerHTML;
+				var gender = document.getElementById("ddGender").value;
 				
 				// Parsing data
 				age = parseInt(age);
 
-				if (gender.value == "Male")
+				if (gender.value == "male")
 				{
 					gender = "Male";
 				}
 
-				else if (gender.value == "Female")
+				else if (gender.value == "female")
 				{
 					gender = "Female";
 				}
@@ -269,7 +269,7 @@
 				city.innerHTML = "";
 				province.value = "ON";
 				age.innerHTML = "";
-				gender.value = "Male";
+				gender.value = "male";
 
 				// Call DISPLAY CUSTOMERS
 				// displayCustomers();
