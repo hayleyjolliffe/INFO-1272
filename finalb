@@ -228,7 +228,25 @@
 				// Looping through toString()
 				for (var i =0; i <= customerArray.length; i++)
 				{
+					// Collecting data
+					this.firstName = customerArray[i].firstName;
+					this.lastName = customerArray[i].lastName;
+					this.age = parseInt(customerArray[i].age);
+					this.city = customerArray[i].city;
+					this.province = customerArray[i].province;
+
+					// Creating temp variables
+					var first = this.firstName;
+					var last = this.lastName;
+					var age = this.age;
+					var city = this.city;
+					var province = this.province;
 					
+					// Displaying data
+					this.string = document.getElementById("");
+					
+
+					var output = this.string;
 				}
 			}
 
