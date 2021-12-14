@@ -87,7 +87,7 @@
 					<option>Female</option>
 				</select>
 				<br/><br/>	
-				<input type="button" id="btnSubmit" value="Submit" class="button">	
+				<input type="button" id="btnSubmit" value="Submit" class="button" onclick="registerCustomer()">	
 			</fieldset>		
 		</div>
 		<br><br>
@@ -217,11 +217,11 @@
 				console.log(customerArray);
 
 				// Clear form for next customer
-				firstName.innerHTML = "";
-				lastName.innerHTML = "";
-				city.innerHTML = "";
+				firstName.innerHTML = "tbFirstName";
+				lastName.innerHTML = "tbLastName";
+				city.innerHTML = "tbCity";
 				province.value = "ON";
-				age.innerHTML = "";
+				age.innerHTML = "tbAge";
 				gender.value = "Male";
 
 			}
