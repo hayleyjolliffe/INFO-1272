@@ -155,12 +155,20 @@
 			// Creating CUSTOMER (Step 3)
 			function Customer(firstName, lastName, city, province, age, gender)
 			{
+				// Creating objects
 				this.firstName = firstName;				// String
 				this.lastName = lastName;				// String
 				this.city = city;						// String
 				this.province = province;				// String
 				this.age = age;							// Number
 				this.gender = gender;					// String
+			
+				// Creating output method
+				function toString()
+				{
+					// Create variable for string output
+					var string;							// String
+				}
 			}
 
 
@@ -195,11 +203,6 @@
 				console.log(customerArray);
 
 				// Last update: FUNCTIONING
-
-
-				// METHOD — Returns customer details
-
-
 			}
 
 
