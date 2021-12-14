@@ -279,11 +279,18 @@
 			// Creating QUERY DATA (Step 7)
 			function queryData()
 			{
+				// Collecting data
+				var filter;
+				
 				// Creating filter arrays
 				var aTotal = [];
 				var aProvince = [];
 				var aGender = [];
 				var aAge = [];
+
+				// Selecting filter
+				// ALL
+				
 			}
 
 
