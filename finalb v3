@@ -87,7 +87,7 @@
 					<option>Female</option>
 				</select>
 				<br/><br/>	
-				<input type="button" id="btnSubmit" value="Submit" class="button">	
+				<input type="button" id="btnSubmit" value="Submit" class="button" onclick="registerCustomer()">	
 			</fieldset>		
 		</div>
 		<br><br>
@@ -190,6 +190,55 @@
                 customerArray.push(new Customer("Lynda", "Reynolds", "Winnipeg", "MB", "37", "Female"));
             }
             
+            // Creating DISPLAY function
+            function display()
+            {
+                // Creating variables
+                var display = document.getElementById("divCustomerOutput");
+                
+                // Clear display to start
+                display.innerHTML = "";
+
+                // Loop through method to display data
+                for (var i = 0; i <= customerArray.length; i++)
+                {
+                    display.innerHTML += customerArray[i].display;
+                }
+            }
+
+            // Creating REGISTRATION function
+            function registerCustomer()
+            {
+                // Creating temp variables
+                var tempFirst = document.getElementById("tbFirstName").value;
+                var tempLast = document.getElementById("tbLastName").value;
+                var tempCity = document.getElementById("tbCity").value;
+                var tempProvince = document.getElementById("ddProvince").value;
+                var tempAge = document.getElementById("tbAge").value;
+                var tempGender = document.getElementById("ddGender").value;
+
+                tempAge = parseFloat(tempAge);
+
+                var tempCustomer = new Customer(tempFirst, tempLast, tempCity, tempProvince, tempAge, tempGender);
+                customerArray.push(tempCustomer);
+
+                // Clear form for next customer
+                document.getElementById("tbFirstName").innerHTML = "";
+                document.getElementById("tbLastName").innerHTML = "";
+                document.getElementById("tbCity").innerHTML = "";
+                document.getElementById("tbAge").value = "";
+                document.getElementById("ddProvince").value = "ON";
+                document.getElementById("ddGender").value = "Male";
+
+                // Call DISPLAY
+                display();
+            }
+
+            // Creating QUERY function
+            function queryData()
+            {
+                
+            }
 		</script>
 	</body>
 </html>
