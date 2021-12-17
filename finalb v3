@@ -48,7 +48,7 @@
 			height:			auto
 		}
 	</style>
-	<body>
+	<body onload="initialize()">
 		<h1>Customer Data</h1>
 		
 		<!-- Registration Form -->
@@ -129,7 +129,7 @@
 				Age:
 				<input type="number" id="tbQueryAge" value=18 />
 				&nbsp;
-				<input type="button" id="btnQuery" value="Query" class="button"/>
+				<input type="button" id="btnQuery" value="Query" class="button" onclick="queryData()"/>
 				<hr>
 				<div id="divQueryOutput" class="outputStyle">[Query Output Here]</div>
 			</fieldset>
@@ -191,6 +191,8 @@
 
                 // LYNDA REYNOLDS
                 customerArray.push(new Customer("Lynda", "Reynolds", "Winnipeg", "MB", "37", "Female"));
+            
+                return customerArray;
             }
             
             // Creating DISPLAY function
@@ -205,7 +207,7 @@
                 // Loop through method to display data
                 for (var i = 0; i <= customerArray.length; i++)
                 {
-                    display.innerHTML += customerArray[i].display;
+                    display.innerHTML += customerArray[i].first + " " + customerArray[i].last + " is a " + customerArray[i].age + " year old " + customerArray[i].gender + " from " + customerArray[i].city + ", " + customerArray[i].province + "<br>";
                 }
             }
 
@@ -234,77 +236,68 @@
                 document.getElementById("ddGender").value = "Male";
 
                 // Call DISPLAY
-                display();
+                display(customerArray);
             }
 
             // Creating QUERY function
             function queryData()
             {
                 // Creating temp variables
-                var tempCounter = 0;
-                var tempGender = document.getElementById("ddQueryGender").value;
-                var tempProvince = document.getElementById("ddQueryProvince").value;
-                var tempAge = document.getElementById("tbQueryAge").value;
-                var tempString = "";
+                var tempGender = document.getElementById("ddQueryGender");
+                var tempProvince = document.getElementById("ddQueryProvince");
+                var tempAge = document.getElementById("tbQueryAge");
                 var display = document.getElementById("divQueryOutput");
 
-                // Searching filters
-                // Validating ALL
-                tempCounter = customerArray.length;
-                tempString = "Total number of customers: " + tempCounter;
-                display.innerHTML += tempString;
+                var genderCount = 0;
+                var provinceCount = 0;
+                var ageCount = 0;
 
-                // Validating GENDER filter
-                if (tempGender == "Male")
-                {
-                    for (var i = 0; i <= customerArray.length; i++)
-                    {
-                        if (customerArray[i].gender == tempGender)
-                        {
-                            aFilter.push(customerArray[i]);
-                            tempCounter = aFilter.length;
-                            tempString = "Number of " + tempGender + " customers: " + tempCounter;
-                            display.innerHTML += tempString;
-                        }
-                    }
-                }
-                else if (tempGender == "Female")
-                {
-                    for (var i = 0; i <= customerArray.length; i++)
-                    {
-                        if (customerArray[i].gender == tempGender)
-                        {
-                            aFilter.push(customerArray[i]);
-                            tempCounter = aFilter.length;
-                            tempString = "Number of " + tempGender + " customers: " + tempCounter;
-                            display.innerHTML += tempString;
-                        }
-                    }
-                }
+                // Clear display
+                display.innerHTML = "";
 
-                // Validating PROVINCE
+
+                // Validating filters
                 for (var i = 0; i <= customerArray.length; i++)
                 {
-                    if (tempProvince == customerArray[i].province)
+                    // Validating GENDER
+                    if (tempGender.value == customerArray[i].gender)
                     {
                         aFilter.push(customerArray[i]);
-                        tempCounter = aFilter.length;
-                        tempString = "Number of customers living in " + tempProvince + " : " + tempCounter;
-                        display.innerHTML += tempString;
+                        genderCount = parseInt(aFilter.length);
                     }
-                }
 
-                // Validating AGE
-                for (var i = o; i <= customerArray.length; i++)
-                {
-                    if (tempAge >= customerArray[i].age)
+                    // Validating PROVINCE
+                    if (tempProvince.value == customerArray[i].province)
                     {
                         aFilter.push(customerArray[i]);
-                        tempCounter = aFilter.length;
-                        tempString = "Number of customers " + tempAge + " or older: " + tempCounter;
-                        display.innerHTML += tempString;
+                        provinceCount = parseInt(aFilter.length);
                     }
+
+                    // Validating AGE
+                    if (tempAge.value >= customerArray[i].age)
+                    {
+                        aFilter.push(customerArray[i]);
+                        ageCount = parseInt(aFilter.length);
+                    }
+
+                    // Updating display
+                    display.innerHTML = (
+                        "Total number of customers: " + customerArray.length + "<br>" +
+                        "Number of customers living in " + tempProvince.value + ": " + provinceCount + "<br>" +
+                        "Number of " + tempGender.value + " customers: " + genderCount + "<br>" +
+                        "Number of customers " + tempAge.value + " or older: " + ageCount
+                    );
                 }
+            }
+
+            // Creating INITIALIZE function
+            function initialize()
+            {
+                // Load samples
+                loadSamples();
+
+                // Load display using samples
+                display();
             }
 		</script>
 	</body>
