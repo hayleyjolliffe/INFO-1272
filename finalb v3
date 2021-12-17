@@ -166,6 +166,9 @@
             // Creating CUSTOMER ARRAY
             var customerArray = [];
 
+            // Creating FILTERED ARRAY
+            var aFilter = [];
+
             /*
 
                 FUNCTIONS
@@ -237,7 +240,22 @@
             // Creating QUERY function
             function queryData()
             {
-                
+                // Creating temp variables
+                var tempCounter = 0;
+                var tempGender = document.getElementById("ddQueryGender").value;
+                var tempProvince = document.getElementById("ddQueryProvince").value;
+                var tempAge = document.getElementById("tbQueryAge").value;
+
+                // Searching filters
+                if (tempGender == "Male")
+                {
+                    for (var i = 0; i <= customerArray.length; i++)
+                    {
+                        
+                    }
+                }
+
+                // Display numbers
             }
 		</script>
 	</body>
