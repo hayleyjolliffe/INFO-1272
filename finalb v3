@@ -245,17 +245,66 @@
                 var tempGender = document.getElementById("ddQueryGender").value;
                 var tempProvince = document.getElementById("ddQueryProvince").value;
                 var tempAge = document.getElementById("tbQueryAge").value;
+                var tempString = "";
+                var display = document.getElementById("divQueryOutput");
 
                 // Searching filters
+                // Validating ALL
+                tempCounter = customerArray.length;
+                tempString = "Total number of customers: " + tempCounter;
+                display.innerHTML += tempString;
+
+                // Validating GENDER filter
                 if (tempGender == "Male")
                 {
                     for (var i = 0; i <= customerArray.length; i++)
                     {
-                        
+                        if (customerArray[i].gender == tempGender)
+                        {
+                            aFilter.push(customerArray[i]);
+                            tempCounter = aFilter.length;
+                            tempString = "Number of " + tempGender + " customers: " + tempCounter;
+                            display.innerHTML += tempString;
+                        }
+                    }
+                }
+                else if (tempGender == "Female")
+                {
+                    for (var i = 0; i <= customerArray.length; i++)
+                    {
+                        if (customerArray[i].gender == tempGender)
+                        {
+                            aFilter.push(customerArray[i]);
+                            tempCounter = aFilter.length;
+                            tempString = "Number of " + tempGender + " customers: " + tempCounter;
+                            display.innerHTML += tempString;
+                        }
                     }
                 }
 
-                // Display numbers
+                // Validating PROVINCE
+                for (var i = 0; i <= customerArray.length; i++)
+                {
+                    if (tempProvince == customerArray[i].province)
+                    {
+                        aFilter.push(customerArray[i]);
+                        tempCounter = aFilter.length;
+                        tempString = "Number of customers living in " + tempProvince + " : " + tempCounter;
+                        display.innerHTML += tempString;
+                    }
+                }
+
+                // Validating AGE
+                for (var i = o; i <= customerArray.length; i++)
+                {
+                    if (tempAge >= customerArray[i].age)
+                    {
+                        aFilter.push(customerArray[i]);
+                        tempCounter = aFilter.length;
+                        tempString = "Number of customers " + tempAge + " or older: " + tempCounter;
+                        display.innerHTML += tempString;
+                    }
+                }
             }
 		</script>
 	</body>
