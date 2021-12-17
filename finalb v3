@@ -152,6 +152,10 @@
                 this.province = province;
                 this.age = age;
                 this.gender = gender;
+                // Creating TOSTRING method
+                this.display = function toString() {
+                    return this.first + " " + this.last + " is a " + this.age + " year old " + this.gender + " from " + this.city + ", " + this.province + ".";
+                }
             }
 
             /*
